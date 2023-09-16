@@ -6,5 +6,8 @@ import com.yusufnasserdev.todolist.features.task.domain.model.Task
 
 @Database(entities = [Task::class], version = 1)
 abstract class TaskDatabase : RoomDatabase() {
+    abstract val taskDao: TaskDao
+
+
 
 }

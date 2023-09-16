@@ -1,4 +1,4 @@
-package com.yusufnasserdev.todolist
+package com.yusufnasserdev.todolist.features.task.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ToDoListTheme {
-
 
             }
         }

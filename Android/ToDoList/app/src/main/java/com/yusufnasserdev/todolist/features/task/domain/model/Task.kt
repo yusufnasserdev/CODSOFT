@@ -10,6 +10,7 @@ data class Task(
     val priority: Priority,
     val creationTime: Long,
     val dueTime: Long,
+    val complete: Boolean,
     @PrimaryKey val id: Int? = null
 ) {
     companion object {

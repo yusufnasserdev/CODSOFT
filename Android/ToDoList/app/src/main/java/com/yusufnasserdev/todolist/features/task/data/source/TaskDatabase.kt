@@ -8,6 +8,8 @@ import com.yusufnasserdev.todolist.features.task.domain.model.Task
 abstract class TaskDatabase : RoomDatabase() {
     abstract val taskDao: TaskDao
 
-
+    companion object {
+        const val DATABASE_NAME = "tasks_db"
+    }
 
 }

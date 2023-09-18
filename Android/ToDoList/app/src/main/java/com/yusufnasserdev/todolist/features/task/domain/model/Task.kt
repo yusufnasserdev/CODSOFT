@@ -18,3 +18,5 @@ data class Task(
     }
 
 }
+
+class InvalidTaskException(message: String) : Exception(message)

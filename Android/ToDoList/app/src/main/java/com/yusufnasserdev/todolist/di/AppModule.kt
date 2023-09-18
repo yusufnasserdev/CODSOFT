@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.yusufnasserdev.todolist.features.task.data.repository.TaskRepositoryImpl
 import com.yusufnasserdev.todolist.features.task.data.source.TaskDatabase
 import com.yusufnasserdev.todolist.features.task.domain.repository.TaskRepository
+import com.yusufnasserdev.todolist.features.task.domain.usecase.AddTask
 import com.yusufnasserdev.todolist.features.task.domain.usecase.DeleteTask
 import com.yusufnasserdev.todolist.features.task.domain.usecase.GetTasks
 import com.yusufnasserdev.todolist.features.task.domain.usecase.TaskUseCases
@@ -36,10 +37,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideTaskRepository(repo: TaskRepository): TaskUseCases {
+    fun provideTaskUseCases(repo: TaskRepository): TaskUseCases {
         return TaskUseCases(
             getTasks = GetTasks(repo),
-            deleteTask = DeleteTask(repo)
+            deleteTask = DeleteTask(repo),
+            addTask = AddTask(repo)
         )
     }
 

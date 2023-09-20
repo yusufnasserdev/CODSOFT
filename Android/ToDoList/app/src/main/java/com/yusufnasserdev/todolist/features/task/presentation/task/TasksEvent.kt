@@ -6,6 +6,6 @@ import com.yusufnasserdev.todolist.features.task.domain.util.TaskOrder
 sealed class TasksEvent {
     data class Order(val tasksOrder: TaskOrder) : TasksEvent()
     data class DeleteTask(val task: Task) : TasksEvent()
-    data object RestoreTask : TasksEvent()
-    data object ToggleOrderOptions : TasksEvent()
+    object RestoreTask : TasksEvent()
+    object ToggleOrderOptions : TasksEvent()
 }

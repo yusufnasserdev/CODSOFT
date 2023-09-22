@@ -17,15 +17,14 @@ class GetTasks(
             when (taskOrder.orderType) {
                 is OrderType.Ascending -> {
                     when (taskOrder) {
-                        is TaskOrder.Title -> tasks.sortedBy { it.title.lowercase() }
                         is TaskOrder.Priority -> tasks.sortedBy { it.priority }
                         is TaskOrder.TimeDue -> tasks.sortedBy { it.dueTime }
                         is TaskOrder.TimeCreated -> tasks.sortedBy { it.creationTime }
                     }
                 }
+
                 is OrderType.Descending -> {
                     when (taskOrder) {
-                        is TaskOrder.Title -> tasks.sortedByDescending { it.title.lowercase() }
                         is TaskOrder.Priority -> tasks.sortedByDescending { it.priority }
                         is TaskOrder.TimeDue -> tasks.sortedByDescending { it.dueTime }
                         is TaskOrder.TimeCreated -> tasks.sortedByDescending { it.creationTime }

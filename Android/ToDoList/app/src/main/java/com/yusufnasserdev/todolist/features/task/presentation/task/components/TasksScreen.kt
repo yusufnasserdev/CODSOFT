@@ -32,9 +32,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.yusufnasserdev.todolist.features.task.domain.usecase.GetTasks
+import com.yusufnasserdev.todolist.features.task.domain.usecase.TaskUseCases
 import com.yusufnasserdev.todolist.features.task.presentation.task.TasksEvent
 import com.yusufnasserdev.todolist.features.task.presentation.task.TasksViewModel
 import kotlinx.coroutines.launch
@@ -42,7 +46,8 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun TasksScreen(
-    navController: NavController, viewModel: TasksViewModel = hiltViewModel()
+    navController: NavController,
+    viewModel: TasksViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
     val scaffoldState = rememberScaffoldState()
@@ -79,6 +84,7 @@ fun TasksScreen(
                 }
 
             }
+
             AnimatedVisibility(
                 visible = state.isOrderOptionsVisible,
                 enter = fadeIn() + slideInVertically(),
@@ -130,7 +136,13 @@ fun TasksScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
         }
-
     }
+}
 
+@Preview
+@Composable
+fun TasksScreenPrev() {
+    TasksScreen(
+        navController = rememberNavController()
+    )
 }

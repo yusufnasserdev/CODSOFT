@@ -17,7 +17,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,6 +26,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.yusufnasserdev.todolist.features.task.domain.model.Priority
 import com.yusufnasserdev.todolist.features.task.domain.model.Task
+import java.util.Date
 
 
 @Composable
@@ -46,10 +46,10 @@ fun TaskItem(
                 .padding(vertical = 4.dp, horizontal = 16.dp)
                 .height(76.dp),
             shape = RoundedCornerShape(cornerRadius),
-            backgroundColor = MaterialTheme.colors.primary,
+            backgroundColor = MaterialTheme.colors.primaryVariant,
             contentColor = MaterialTheme.colors.onPrimary,
             elevation = 10.dp,
-            border = BorderStroke(2.dp, MaterialTheme.colors.secondary)
+            border = BorderStroke(2.dp, MaterialTheme.colors.error)
         ) {
             Column(
                 modifier = Modifier
@@ -64,14 +64,17 @@ fun TaskItem(
                 )
                 Text(
                     text = task.description,
-                    style = MaterialTheme.typography.body2
+                    style = MaterialTheme.typography.subtitle1
                 )
             }
         }
 
         Spacer(modifier = Modifier.width(16.dp))
 
-        Text(text = task.dueTime.toString(), style = MaterialTheme.typography.h5)
+        Text(
+            text = Date(task.dueTime).toString(),
+            style = MaterialTheme.typography.h5
+        )
 
         Spacer(modifier = Modifier.width(16.dp))
 
@@ -83,7 +86,6 @@ fun TaskItem(
         }
 
     }
-
 }
 
 @Preview
